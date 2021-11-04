@@ -9,14 +9,14 @@
 
 // 2. Stampare i membri in HTML
 
-
+var container = document.getElementsByClassName('.team-container');
 
 const members = 
 
 [
     { 
         "nome" : 'Weyne Barnett',
-        "ruolo" : 'Founder &amp CEO',
+        "ruolo" : 'Founder & CEO',
         "foto" : 'img/wayne-barnett-founder-ceo.jpg'
     },
 
@@ -68,4 +68,22 @@ for (let i = 0; i < members.length; i++) {
     console.log(nameMembro);
     console.log(ruoloMembro);
     console.log(fotoMembro);
+
+    container.innerHTML +=
+    `
+    <div class="team-card">
+            <div class="card-image">
+              <img
+                src="${fotoMembro}"
+                alt="${nameMembro}"
+              />
+            </div>
+            <div class="card-text">
+              <h3>${nameMembro}</h3>
+              <p>${ruoloMembro}</p>
+            </div>
+          </div>
+    `
 }
+
+
