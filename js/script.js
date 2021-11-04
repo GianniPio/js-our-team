@@ -9,8 +9,10 @@
 
 // 2. Stampare i membri in HTML
 
+// variabile usata per salvare tutto in html
 var container = document.querySelector('.team-container');
 
+// array contenente oggetti/membri
 const members = 
 
 [
@@ -54,10 +56,12 @@ const members =
 
 for (let i = 0; i < members.length; i++) {
 
+    // crezioni variabili per salvare i membri
     let nameMembro = '';
     let ruoloMembro = '';
     let fotoMembro = '';
 
+    // salvare nelle variabili il valore degli oggetti
     for (var key in members) {
 
         nameMembro = members[i].nome;
@@ -65,10 +69,7 @@ for (let i = 0; i < members.length; i++) {
         fotoMembro = members[i].foto;
     }
 
-    console.log(nameMembro);
-    console.log(ruoloMembro);
-    console.log(fotoMembro);
-
+    // stampa gli elementi nell'HTML
     container.innerHTML +=
     `
     <div class="team-card">
