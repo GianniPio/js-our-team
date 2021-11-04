@@ -17,8 +17,11 @@ var container = document.querySelector('.team-container');
 
 // variabile che si riferisce al bottone
 const addBtn = document.getElementById('addMemberButton');
+
+// oggetto vuoto
 let newListMembers = {};
 
+// array contenente oggetti/membri
 const members = 
 
 [
@@ -62,10 +65,12 @@ const members =
 
 for (let i = 0; i < members.length; i++) {
 
+    // crezioni variabili per salvare i membri
     let nameMembro = '';
     let ruoloMembro = '';
     let fotoMembro = '';
 
+    // salvare nelle variabili il valore degli oggetti
     for (var key in members) {
 
         nameMembro = members[i].nome;
@@ -73,10 +78,7 @@ for (let i = 0; i < members.length; i++) {
         fotoMembro = members[i].foto;
     }
 
-    console.log(nameMembro);
-    console.log(ruoloMembro);
-    console.log(fotoMembro);
-
+    // stampa gli elementi nell'HTML
     container.innerHTML +=
     `
     <div class="team-card">
@@ -94,24 +96,27 @@ for (let i = 0; i < members.length; i++) {
     `
 }
 
+// al click, stampa i nuovi membri
 addBtn.addEventListener('click',
 
     function() {
 
+        // variabili che assumono il valore dei form nell'HTML
         var newName = document.getElementById('name').value;
         var newRole = document.getElementById('role').value;
         var newImg = document.getElementById('image').value;
 
+        // aggiungere all'oggetto vuoto, i nuovi membri
         newListMembers = {
             'nome' : newName,
             'ruolo' : newRole,
             'foto' : newImg
         };
 
+        // aggiungere i nuovi membri nell'array dei membri
         members.push(newListMembers);
 
-        console.log(members);
-
+        // stampa i nuovi membri
         container.innerHTML +=
     `
     <div class="team-card">
@@ -127,14 +132,7 @@ addBtn.addEventListener('click',
             </div>
           </div>
     `
-
-
     }
-
-
-
-
-
 
 )
 
