@@ -9,7 +9,15 @@
 
 // 2. Stampare i membri in HTML
 
+// 3. Al click del bottone, inserire altri membri
+
+
+// variabile usata per salvare tutto in html
 var container = document.querySelector('.team-container');
+
+// variabile che si riferisce al bottone
+const addBtn = document.getElementById('addMemberButton');
+let newListMembers = {};
 
 const members = 
 
@@ -85,5 +93,50 @@ for (let i = 0; i < members.length; i++) {
           </div>
     `
 }
+
+addBtn.addEventListener('click',
+
+    function() {
+
+        var newName = document.getElementById('name').value;
+        var newRole = document.getElementById('role').value;
+        var newImg = document.getElementById('image').value;
+
+        newListMembers = {
+            'nome' : newName,
+            'ruolo' : newRole,
+            'foto' : newImg
+        };
+
+        members.push(newListMembers);
+
+        console.log(members);
+
+        container.innerHTML +=
+    `
+    <div class="team-card">
+            <div class="card-image">
+              <img
+                src="${newListMembers.foto}"
+                alt="${newListMembers.nome}"
+              />
+            </div>
+            <div class="card-text">
+              <h3>${newListMembers.nome}</h3>
+              <p>${newListMembers.ruolo}</p>
+            </div>
+          </div>
+    `
+
+
+    }
+
+
+
+
+
+
+)
+
 
 
